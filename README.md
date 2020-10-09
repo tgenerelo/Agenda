@@ -1,6 +1,6 @@
 # Agenda
 
-##Requisitos funcionales:
+## Requisitos funcionales:
 1- Añadir contacto
 2- Buscar contacto
 3- Borrar contacto
