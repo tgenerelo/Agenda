@@ -1,13 +1,12 @@
 Algoritmo Agenda
 	
-	Definir volverAEmpezar, userInput, contacto1, contacto2 Como Caracter;
+	Definir volverAEmpezar, userInput, contacto1 Como Caracter;
 	Definir inputMenu, i, j Como Entero;
 	Definir error Como Logico;
 	Definir contactos Como Caracter;
 	
 	// AGENDA
-	contacto1="";
-	contacto2="";
+	contacto1="Jesús*89456";
 	
 	Dimension contactos[5];
 	contactos[0]="Nombre1 Apellido1*12345";
@@ -74,13 +73,13 @@ Algoritmo Agenda
 						Escribir "Se ha encontrado la siguiente coincidencia:";
 						Escribir "";
 						Escribir "Nombre: ", Sin Saltar;
-						Para i=0 hasta longitud(contacto1) hacer
-							si Subcadena(contacto1,i,i)<>"*" entonces
-								Escribir subcadena(contacto1,i,i) Sin Saltar;
-								si Subcadena(contacto1,i+1,i+1)=="*" Entonces
+						Para j=0 hasta longitud(contacto1) hacer
+							si Subcadena(contacto1,j,j)<>"*" entonces
+								Escribir subcadena(contacto1,j,j) Sin Saltar;
+								si Subcadena(contacto1,j+1,j+1)=="*" Entonces
 									Escribir "";
 									Escribir "Teléfono: " Sin Saltar;
-									i=i+1;
+									j=j+1;
 								FinSi
 							FinSi
 						FinPara
