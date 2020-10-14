@@ -47,7 +47,7 @@ Algoritmo Agenda
 		
 		Segun inputMenu hacer
 			1:
-				// Leer contacto1
+				// LEER CONTACTOS 
 				Si contacto1<>"" Entonces
 					Escribir "Nombre: ", Sin Saltar;
 					Para i=0 hasta longitud(contacto1) hacer
