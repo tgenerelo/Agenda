@@ -5,7 +5,7 @@ Algoritmo AgendaArray
 	Definir error Como Logico;
 	
 	// NÚMERO DE CONTACTOS EN LA AGENDA
-	cuantosContactos=10;
+	cuantosContactos=5;
 	finalContactos=cuantosContactos-1;
 	
 	// AGENDA	
@@ -15,8 +15,8 @@ Algoritmo AgendaArray
 		vContactos[i]="";
 	FinPara
 	
-	vContactos[1]="Paula*8538945";
-	vContactos[5]="José María*7956423";
+	vContactos[1]="María*8538945";
+	vContactos[4]="Juan*7956423";
 	
 	// RENUMERAR CONTACTOS 
 	Para i=0 Hasta finalContactos-1 Hacer
@@ -158,7 +158,21 @@ Algoritmo AgendaArray
 							Escribir "ERROR: carácter no permitido. Vuelve a intentarlo.";
 							Escribir "";
 						FinSi
-						Escribir "Introduce el nombre del contacto:";
+						Escribir "CONTACTO ", inputSub;
+						Escribir "Nombre: ", Sin Saltar;
+						Para i=0 hasta longitud(vContactos[inputSub-1]) hacer
+							si Subcadena(vContactos[inputSub-1],i,i)<>"*" entonces
+								Escribir subcadena(vContactos[inputSub-1],i,i) Sin Saltar;
+								si Subcadena(vContactos[inputSub-1],i+1,i+1)=="*" Entonces
+									Escribir "";
+									Escribir "Teléfono: " Sin Saltar;
+									j=j+1;
+								FinSi
+							FinSi
+						FinPara
+						Escribir "";
+						Escribir "";
+						Escribir "Introduce el nuevo nombre del contacto:";
 						Leer userInput;
 						error=Falso;
 						Para i=0 Hasta Longitud(userInput) Hacer
@@ -170,7 +184,7 @@ Algoritmo AgendaArray
 					
 					vContactos[inputSub-1]=userInput;
 					
-					Escribir "Introduce el teléfono del contacto:";
+					Escribir "Introduce el nuevo teléfono del contacto:";
 					Leer userInput;
 					vContactos[inputSub-1]=vContactos[inputSub-1] + "*" + userInput;
 					
