@@ -68,11 +68,11 @@ Algoritmo AgendaArray
 						Para j=0 hasta longitud(vContactos[i]) hacer
 							si Subcadena(vContactos[i],j,j)<>"*" entonces
 								Escribir subcadena(vContactos[i],j,j) Sin Saltar;
-								si Subcadena(vContactos[i],j+1,j+1)=="*" Entonces
-									Escribir "";
-									Escribir "Teléfono: " Sin Saltar;
-									j=j+1;
-								FinSi
+							FinSi
+							si Subcadena(vContactos[i],j+1,j+1)=="*" Entonces
+								Escribir "";
+								Escribir "Teléfono: " Sin Saltar;
+								j=j+1;
 							FinSi
 						FinPara
 						Escribir "";
