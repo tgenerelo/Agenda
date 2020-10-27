@@ -35,14 +35,16 @@ SubProceso verContactos(ultimoContacto,mContactos,numeroContactos)
 	Para i=0 hasta ultimoContacto Hacer
 		Si mContactos[0,i]<>"" o mContactos[1,i]<>"" Entonces
 			escribirContacto(mContactos,i);
-			Escribir "";
 			contador=contador+1;
 		FinSi
 	FinPara
 	
+	Escribir "";
+	
 	Si contador==0 Entonces
 		Escribir "No se ha añadido ningún contacto.";
 	FinSi
+	
 FinSubProceso
 
 // 2 - Buscar un contacto
@@ -129,11 +131,12 @@ SubProceso eliminarContacto(ultimoContacto,mContactos)
 	Escribir "Introduce el ID del contacto que deseas eliminar: ", Sin Saltar;
 	Leer inputSub;
 	Escribir "";
-	Si mContactos[0,inputSub]<>"" o mContactos[1,inputSub]<>"" Entonces
-		Escribir "";
+	Si mContactos[0,inputSub-1]<>"" o mContactos[1,inputSub-1]<>"" Entonces
 		Escribir "Has elegido eliminar el siguiente contacto:";
+		Escribir "";
 		escribirContacto(mContactos,inputSub-1);
-		Escribir "¿Estás seguro? (S/N)";
+		Escribir "";
+		Escribir "¿Estás seguro? (S/N) " Sin Saltar;
 		Leer siONo;
 		siONo=Minusculas(siONo);
 		Si siONo=="s" Entonces
@@ -154,8 +157,7 @@ FinSubProceso
 // FUNCIONES DE USO HABITUAL
 // Escribir un contacto
 SubProceso escribirContacto (mContactos,i)
-	Escribir "CONTACTO ", i+1;
-	Escribir mContactos[0,i], ": ", mContactos[1,i],".";
+	Escribir "CONTACTO ", i+1, ": ", mContactos[0,i], ", ", mContactos[1,i],".";
 FinSubProceso
 
 // Mover cada contacto al primer hueco vacío
@@ -179,6 +181,10 @@ FinFuncion
 // ERRORES
 SubProceso errorNoContacto()
 	Escribir "ERROR: El contacto seleccionado no existe.";
+FinSubProceso
+
+SubProceso errorOpInvalida()
+	Escribir "ERROR: Operación inválida.";
 FinSubProceso
 
 // PROGRAMA PRINCIPAL
@@ -235,7 +241,7 @@ Algoritmo AgendaArray
 		FinSegun
 		
 		Si inputMenu<0 o inputMenu>6 Entonces
-			Escribir "ERROR: Opción inválida. ", Sin Saltar;
+			errorOpInvalida();
 		FinSi
 		
 		Si inputMenu<>6 Entonces
